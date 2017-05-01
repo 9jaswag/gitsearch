@@ -1,3 +1,32 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid text-center">
+  <h1 class="text-white title">{{title}}</h1>
+  <input class="input-box" type="text" name="username" id="username" placeholder="Enter a Github username" (keyup)='searchUsername()' [(ngModel)] ='username'>
+
+  <div class="container" *ngIf='user' style="margin-top: 2rem;">
+    
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <img src="{{user?.avatar_url}}" alt="" class="center-block img-responsive user-image">
+      </div>
+      <div class="col-md-8 col-sm-8 col-xs-12 text-left">
+        <h4 class="">Name: {{ user?.name }}</h4>
+        <h4 class=""><a href="{{ user?.html_url }}" target="_blank">Github: @{{ user?.login }}</a></h4>
+        <h4>Repos: <span class="badge text-danger">{{ user?.public_repos }}</span></h4>
+        <h4>Followers: <span class="badge text-danger">{{ user?.followers }}</span></h4>
+        <h4>Following: <span class="badge text-danger">{{ user?.following }}</span></h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-left" *ngIf='repo' style="margin: 2rem;">
+    <h3 class=" text-center">Repos</h3>
+    <div class="repo-box col-md-12 col-sm-12 col-xs-12" style="height: 50vh; overflow-y: scroll; overflow-x: unset;">
+      <div class="col-md-12 col-sm-12 col-xs-12" *ngFor='let rep of repo'>
+        <div class="col-md-12 col-sm-12 col-xs-12 box-shadow" style="background: white; color: black; padding: 0 20px; margin-bottom: 1rem;">
+          <h4>{{rep?.name}}</h4>
+          <p class=""><em>{{rep?.description}}</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
