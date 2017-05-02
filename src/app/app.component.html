@@ -23,7 +23,7 @@
     <div class="repo-box col-md-12 col-sm-12 col-xs-12" style="height: 50vh; overflow-y: scroll; overflow-x: unset;">
       <div class="col-md-12 col-sm-12 col-xs-12" *ngFor='let rep of repo'>
         <div class="col-md-12 col-sm-12 col-xs-12 box-shadow" style="background: white; color: black; padding: 0 20px; margin-bottom: 1rem;">
-          <h4>{{rep?.name}}</h4>
+          <h4><a href="https://github.com/{{user?.login}}/gitsearch" target="_blank" style="color: black">{{rep?.name}}</a></h4>
           <p class=""><em>{{rep?.description}}</em></p>
         </div>
       </div>

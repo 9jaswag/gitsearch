@@ -19,15 +19,15 @@ export class GitService {
    getUser(): Observable<Response> {
       return this._http.get(`https://api.github.com/users/${this.username}`)
               .map((response: Response) => response.json())
-              .catch(this.handleError)
-              .do(data => console.log('Data: ' + JSON.stringify(data)));
+              .catch(this.handleError);
+              // .do(data => console.log('Data: ' + JSON.stringify(data)));
     }
 
   getRepos(): Observable<Response> {
     return this._http.get(`https://api.github.com/users/${this.username}/repos`)
             .map((response: Response) => response.json())
-            .catch(this.handleError)
-            .do(data => console.log('Data: ' + JSON.stringify(data)));
+            .catch(this.handleError);
+            // .do(data => console.log('Data: ' + JSON.stringify(data)));
   }
 
   updateUser(username: string) {
